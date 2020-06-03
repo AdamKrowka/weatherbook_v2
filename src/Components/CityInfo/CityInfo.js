@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
 import { ReactComponent as Icon } from "../../svg/2682801 - cloudy fog foggy mist moon night weather.svg";
 import ObserveButton from "./ObserveButton.js";
+import Chart from "./Chart.js";
 
 const useStyles = makeStyles((theme) => ({
   info: {
@@ -19,15 +20,19 @@ const useStyles = makeStyles((theme) => ({
   },
   observe: {
     [theme.breakpoints.down("sm")]: {
-      order: 1,
       justifyContent: "flex-end",
       display: "flex",
+      order: 1,
       paddingRight: theme.spacing(2),
     },
   },
   chart: {
+    padding: theme.spacing(1),
     [theme.breakpoints.down("sm")]: {
       order: 4,
+    },
+    [theme.breakpoints.down("xs")]: {
+      padding: theme.spacing(0),
     },
   },
   cityName: {
@@ -63,6 +68,27 @@ const CityData = {
     temp: 24,
     icon: "http://openweathermap.org/img/wn/01d@2x.png",
   },
+  chart: {
+    label: [
+      "14:00",
+      "15:00",
+      "16:00",
+      "17:00",
+      "18:00",
+      "19:00",
+      "20:00",
+      "21:00",
+      "22:00",
+      "23:00",
+      "00:00",
+      "01:00",
+    ],
+    data: [
+      [10, 13, 12, 13, 12, 11, 12, 13, 12, 11, 12, 13],
+      [80, 60, 63, 61, 69, 63, 65, 67, 65, 72, 76, 80],
+      [15, 16, 13, 13, 12, 12, 23, 22, 12, 21, 12, 32],
+    ],
+  },
 };
 
 const CityInfo = () => {
@@ -84,7 +110,7 @@ const CityInfo = () => {
         <ObserveButton observe={true}></ObserveButton>
       </Grid>
       <Grid className={classes.chart} item xs={12}>
-        chart
+        <Chart dataValues={CityData.chart}></Chart>
       </Grid>
     </Grid>
   );
