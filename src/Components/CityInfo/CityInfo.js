@@ -5,6 +5,7 @@ import { Grid } from "@material-ui/core";
 import { ReactComponent as Icon } from "../../svg/2682801 - cloudy fog foggy mist moon night weather.svg";
 import ObserveButton from "./ObserveButton.js";
 import Chart from "./Chart.js";
+import DaysTable from "./DaysTable.js";
 
 const useStyles = makeStyles((theme) => ({
   info: {
@@ -89,6 +90,7 @@ const CityData = {
       [15, 16, 13, 13, 12, 12, 23, 22, 12, 21, 12, 32],
     ],
   },
+  table: {},
 };
 
 const CityInfo = () => {
@@ -111,6 +113,9 @@ const CityInfo = () => {
       </Grid>
       <Grid className={classes.chart} item xs={12}>
         <Chart dataValues={CityData.chart}></Chart>
+      </Grid>
+      <Grid className={classes.chart} item xs={12}>
+        <DaysTable></DaysTable>
       </Grid>
     </Grid>
   );
