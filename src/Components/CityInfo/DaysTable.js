@@ -8,12 +8,28 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
+import Termometer from "../../svg/termometer.svg";
+import Humidity from "../../svg/humidity.svg";
+import Wind from "../../svg/wind.svg";
+
 const useStyles = makeStyles((theme) => ({
   table: {
     minWidth: 650,
   },
   container: {
     marginTop: theme.spacing(3),
+  },
+  icon: {
+    height: "35px",
+  },
+  title: {
+    paddingRight: 0,
+    lineHeight: "35px",
+  },
+  titleCell: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
   },
 }));
 
@@ -48,10 +64,30 @@ const DaysTable = () => {
           <TableRow>
             <TableCell>Day of Week</TableCell>
             <TableCell>Weather</TableCell>
-            <TableCell align="right">Temperature day</TableCell>
-            <TableCell align="right">Temperature night</TableCell>
-            <TableCell align="right">Humidity</TableCell>
-            <TableCell align="right"> Wind </TableCell>
+            <TableCell align="right" className={classes.title}>
+              <div className={classes.titleCell}>
+                <span>Temperature day </span>
+                <img className={classes.icon} src={Termometer} alt="" />
+              </div>
+            </TableCell>
+            <TableCell align="right" className={classes.title}>
+              <div className={classes.titleCell}>
+                <span>Temperature night </span>
+                <img className={classes.icon} src={Termometer} alt="" />
+              </div>
+            </TableCell>
+            <TableCell align="right" className={classes.title}>
+              <div className={classes.titleCell}>
+                <span>Humidity </span>
+                <img className={classes.icon} src={Humidity} alt="" />
+              </div>
+            </TableCell>
+            <TableCell align="right" className={classes.title}>
+              <div className={classes.titleCell}>
+                <span>Wind </span>
+                <img className={classes.icon} src={Wind} alt="" />
+              </div>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
