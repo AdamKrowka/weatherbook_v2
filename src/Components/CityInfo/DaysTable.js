@@ -55,8 +55,8 @@ const DaysTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.day}>
+          {rows.map((row, index) => (
+            <TableRow key={index}>
               <TableCell component="th" scope="row">
                 {row.day}
               </TableCell>

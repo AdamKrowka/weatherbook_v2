@@ -2,7 +2,12 @@ import React from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
-import { ReactComponent as Icon } from "../../svg/2682801 - cloudy fog foggy mist moon night weather.svg";
+import Icon from "../../svg/2682801 - cloudy fog foggy mist moon night weather.svg";
+import Sunrise from "../../svg/sunrise.svg";
+import Sunset from "../../svg/sunset.svg";
+import Termometer from "../../svg/termometer.svg";
+import Humidity from "../../svg/humidity.svg";
+import Wind from "../../svg/wind.svg";
 import ObserveButton from "./ObserveButton.js";
 import Chart from "./Chart.js";
 import DaysTable from "./DaysTable.js";
@@ -15,7 +20,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   temp: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
     [theme.breakpoints.down("sm")]: {
+      alignItems: "center",
       order: 3,
     },
   },
@@ -45,8 +54,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "2rem",
   },
   currentTemp: {
-    fontSize: "5rem",
+    fontSize: "3rem",
     display: "flex",
+    justifyContent: "center",
     [theme.breakpoints.down("xs")]: {
       fontSize: "4rem",
     },
@@ -57,43 +67,24 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
   },
+  sunIcon: {
+    height: "60px",
+  },
+  sunTime: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  termometer: {
+    height: "60px",
+  },
+  basicInfo: {
+    display: "flex",
+    alignItems: "center",
+  },
 }));
 
-const CityData = {
-  name: "Poznań",
-  date: "Mon. 01.06.20",
-  current: {
-    name: "clear sky",
-    sunrise: "06:12",
-    sunset: "20:32",
-    temp: 24,
-    icon: "http://openweathermap.org/img/wn/01d@2x.png",
-  },
-  chart: {
-    label: [
-      "14:00",
-      "15:00",
-      "16:00",
-      "17:00",
-      "18:00",
-      "19:00",
-      "20:00",
-      "21:00",
-      "22:00",
-      "23:00",
-      "00:00",
-      "01:00",
-    ],
-    data: [
-      [10, 13, 12, 13, 12, 11, 12, 13, 12, 11, 12, 13],
-      [80, 60, 63, 61, 69, 63, 65, 67, 65, 72, 76, 80],
-      [15, 16, 13, 13, 12, 12, 23, 22, 12, 21, 12, 32],
-    ],
-  },
-  table: {},
-};
-
-const CityInfo = () => {
+const CityInfo = ({ CityData }) => {
   const classes = useStyles();
   return (
     <Grid className={classes.container} container>
@@ -101,11 +92,34 @@ const CityInfo = () => {
         <div className={classes.cityName}>{CityData.name}</div>
         <div className={classes.date}>{CityData.date}</div>
         <div className={classes.currentName}>{CityData.current.name}</div>
+        <div className={classes.sunTime}>
+          <img className={classes.sunIcon} src={Sunrise} alt="" />
+          {CityData.current.sunrise}
+        </div>
+        <div className={classes.sunTime}>
+          <img className={classes.sunIcon} src={Sunset} alt="" />
+          {CityData.current.sunset}
+        </div>
       </Grid>
-      <Grid className={classes.temp} item xs={12} md={6}>
+      <Grid className={classes.temp} item xs={12} md={3}>
         <div className={classes.currentTemp}>
-          <Icon className={classes.currentIcon}></Icon>
-          {CityData.current.temp}°C
+          <img className={classes.currentIcon} src={Icon} alt="" />
+        </div>
+      </Grid>
+      <Grid className={classes.temp} item xs={12} md={3}>
+        <div className={classes.basicInfo}>
+          <img className={classes.termometer} src={Termometer} alt="" />
+          <div className={classes.currentTemp}>{CityData.current.temp}°C</div>
+        </div>
+        <div className={classes.basicInfo}>
+          <img className={classes.termometer} src={Humidity} alt="" />
+          <div className={classes.currentTemp}>
+            {CityData.current.humidity}%
+          </div>
+        </div>
+        <div className={classes.basicInfo}>
+          <img className={classes.termometer} src={Wind} alt="" />
+          <div className={classes.currentTemp}>{CityData.current.wind}m/s</div>
         </div>
       </Grid>
       <Grid className={classes.observe} item xs={12} md={2}>

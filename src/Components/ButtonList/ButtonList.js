@@ -6,6 +6,7 @@ import Tab from "@material-ui/core/Tab";
 function a11yProps(index) {
   return {
     id: `vertical-tab-${index}`,
+    key: `vertical-tab-${index}`,
     "aria-controls": `vertical-tabpanel-${index}`,
   };
 }
@@ -21,20 +22,25 @@ const useStyles = makeStyles((theme) => ({
   tabs: {
     borderLeft: `1px solid ${theme.palette.divider}`,
     width: "100%",
+    maxHeight: "80vh",
   },
   indicator: {
     right: "auto",
   },
 }));
 
-export default function VerticalTabs() {
+export default function CityList({ cityList, setSelectedCity }) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
+    setSelectedCity(cityList[newValue]);
     setValue(newValue);
   };
 
+  const CityList = cityList.map((city, index) => (
+    <Tab label={city.name} {...a11yProps(index)} />
+  ));
   return (
     <div className={classes.root}>
       <Tabs
@@ -47,13 +53,7 @@ export default function VerticalTabs() {
         TabIndicatorProps={{ className: classes.indicator }}
         className={classes.tabs}
       >
-        <Tab label="Item One" {...a11yProps(0)} />
-        <Tab label="Item Two" {...a11yProps(1)} />
-        <Tab label="Item Three" {...a11yProps(2)} />
-        <Tab label="Item Four" {...a11yProps(3)} />
-        <Tab label="Item Five " {...a11yProps(4)} />
-        <Tab label="Item Six" {...a11yProps(5)} />
-        <Tab label="Item Seven" {...a11yProps(6)} />
+        {CityList}
       </Tabs>
     </div>
   );
