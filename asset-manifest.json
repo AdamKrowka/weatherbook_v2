@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/weatherbook_v2/static/css/main.1a67de50.chunk.css",
+    "main.js": "/weatherbook_v2/static/js/main.a63dd086.chunk.js",
+    "main.js.map": "/weatherbook_v2/static/js/main.a63dd086.chunk.js.map",
+    "runtime-main.js": "/weatherbook_v2/static/js/runtime-main.471a31d1.js",
+    "runtime-main.js.map": "/weatherbook_v2/static/js/runtime-main.471a31d1.js.map",
+    "static/js/2.5491f90e.chunk.js": "/weatherbook_v2/static/js/2.5491f90e.chunk.js",
+    "static/js/2.5491f90e.chunk.js.map": "/weatherbook_v2/static/js/2.5491f90e.chunk.js.map",
+    "index.html": "/weatherbook_v2/index.html",
+    "precache-manifest.630d50c0fe211a07b2bd56b282fdfd7a.js": "/weatherbook_v2/precache-manifest.630d50c0fe211a07b2bd56b282fdfd7a.js",
+    "service-worker.js": "/weatherbook_v2/service-worker.js",
+    "static/css/main.1a67de50.chunk.css.map": "/weatherbook_v2/static/css/main.1a67de50.chunk.css.map",
+    "static/js/2.5491f90e.chunk.js.LICENSE.txt": "/weatherbook_v2/static/js/2.5491f90e.chunk.js.LICENSE.txt",
+    "static/media/2682801 - cloudy fog foggy mist moon night weather.svg": "/weatherbook_v2/static/media/2682801 - cloudy fog foggy mist moon night weather.06dd6146.svg",
+    "static/media/humidity.svg": "/weatherbook_v2/static/media/humidity.88a27247.svg",
+    "static/media/sunrise.svg": "/weatherbook_v2/static/media/sunrise.086ad671.svg",
+    "static/media/sunset.svg": "/weatherbook_v2/static/media/sunset.842357a9.svg",
+    "static/media/termometer.svg": "/weatherbook_v2/static/media/termometer.5d743a8b.svg",
+    "static/media/wind.svg": "/weatherbook_v2/static/media/wind.0487e0f0.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.471a31d1.js",
+    "static/js/2.5491f90e.chunk.js",
+    "static/css/main.1a67de50.chunk.css",
+    "static/js/main.a63dd086.chunk.js"
+  ]
+}
