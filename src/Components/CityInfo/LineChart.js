@@ -25,7 +25,7 @@ const LineChart = ({ data, labels, value }) => {
         plugins: {
           datalabels: {
             formatter: (text) =>
-              `${text}${value ? (value == 1 ? " %" : " m/s") : " °C"}`,
+              `${text}${value ? (value === 1 ? " %" : " m/s") : " °C"}`,
             display: true,
             color: "white",
             backgroundColor: "rgba(200,200,200,0.0)",

@@ -129,7 +129,7 @@ const CityInfo = ({ CityData }) => {
         <Chart dataValues={CityData.chart}></Chart>
       </Grid>
       <Grid className={classes.chart} item xs={12}>
-        <DaysTable></DaysTable>
+        <DaysTable row={CityData.table}></DaysTable>
       </Grid>
     </Grid>
   );

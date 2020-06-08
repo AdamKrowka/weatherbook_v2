@@ -38,7 +38,6 @@ const Chart = ({ dataValues }) => {
   const classes = useStyles();
 
   const handleChange = (event, newValue) => {
-    console.table(dataValues.data);
     setValue(newValue);
   };
   return (

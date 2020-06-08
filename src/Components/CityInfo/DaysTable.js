@@ -33,28 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function createData(
-  day,
-  weather,
-  temperatureDay,
-  temperatureNight,
-  humidity,
-  wind
-) {
-  return { day, weather, temperatureDay, temperatureNight, humidity, wind };
-}
-
-const rows = [
-  createData("Monday", "Clear sky", 12, 8, 80, 29),
-  createData("Monday", "Clear sky", 12, 8, 80, 29),
-  createData("Monday", "Clear sky", 12, 8, 80, 29),
-  createData("Monday", "Clear sky", 12, 8, 80, 29),
-  createData("Monday", "Clear sky", 12, 8, 80, 29),
-  createData("Monday", "Clear sky", 12, 8, 80, 29),
-  createData("Monday", "Clear sky", 12, 8, 80, 29),
-];
-
-const DaysTable = () => {
+const DaysTable = ({ row }) => {
   const classes = useStyles();
 
   return (
@@ -91,7 +70,7 @@ const DaysTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row, index) => (
+          {row.map((row, index) => (
             <TableRow key={index}>
               <TableCell component="th" scope="row">
                 {row.day}
